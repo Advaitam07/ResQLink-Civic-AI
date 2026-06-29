@@ -1,0 +1,6 @@
+{
+  "name": "ResQLink Civic Intelligence Network",
+  "description": "Advanced AI-powered Disaster Intelligence & Emergency Response Platform with specialized agents for risk prediction, vision-based hazard analysis, coordinator dispatch, and live mission control operations.",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,114 @@
+{
+  "entities": {
+    "CivicIssue": {
+      "title": "CivicIssue",
+      "description": "A community reported civic or disaster incident",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "category": { "type": "string" },
+        "status": { "type": "string" },
+        "severity": { "type": "string" },
+        "communityImpact": { "type": "string" },
+        "location": { "type": "object" },
+        "reporter": { "type": "object" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" },
+        "imageUrl": { "type": "string" },
+        "recommendedActions": { "type": "array" },
+        "upvotes": { "type": "number" },
+        "upvotedBy": { "type": "array" },
+        "comments": { "type": "array" },
+        "timeline": { "type": "array" },
+        "investigation": { "type": "object" }
+      },
+      "required": ["id", "title", "description", "category", "status", "severity", "location", "reporter", "createdAt", "updatedAt"]
+    },
+    "CivicUser": {
+      "title": "CivicUser",
+      "description": "A user profile with gamified civic contribution points",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "points": { "type": "number" },
+        "reportsCount": { "type": "number" },
+        "resolvedCount": { "type": "number" }
+      },
+      "required": ["name", "email", "points", "reportsCount", "resolvedCount"]
+    },
+    "ResourceAlert": {
+      "title": "ResourceAlert",
+      "description": "An emergency alert dispatched to a resource team leader device",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "crewId": { "type": "string" },
+        "crewName": { "type": "string" },
+        "leaderName": { "type": "string" },
+        "leaderPhone": { "type": "string" },
+        "message": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "crewId", "crewName", "leaderName", "leaderPhone", "message", "timestamp", "status"]
+    },
+    "MutualAidRequest": {
+      "title": "MutualAidRequest",
+      "description": "A community-driven request or offer of help during emergency",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "type": { "type": "string" },
+        "category": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorEmail": { "type": "string" },
+        "contactInfo": { "type": "string" },
+        "location": { "type": "string" },
+        "status": { "type": "string" },
+        "timestamp": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "title", "description", "type", "category", "authorName", "authorEmail", "status", "timestamp"]
+    },
+    "FinalSafeguard": {
+      "title": "FinalSafeguard",
+      "description": "Encrypted last messages to loved ones automatically cached & deployed under disaster status",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "name": { "type": "string" },
+        "message": { "type": "string" },
+        "contacts": { "type": "array" },
+        "status": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["email", "name", "message", "contacts", "status", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "issues/{issueId}": {
+      "schema": "CivicIssue",
+      "description": "Regional hazard reports and live investigation streams"
+    },
+    "users/{userEmail}": {
+      "schema": "CivicUser",
+      "description": "User profiles and engagement details"
+    },
+    "resource_alerts/{alertId}": {
+      "schema": "ResourceAlert",
+      "description": "Live dispatched alerts received by crew devices"
+    },
+    "mutual_aid/{requestId}": {
+      "schema": "MutualAidRequest",
+      "description": "Peer-to-peer citizen mutual aid request cards"
+    },
+    "final_safeguards/{userEmail}": {
+      "schema": "FinalSafeguard",
+      "description": "Safeguarded final messages and emergency backup dispatches for families"
+    }
+  }
+}
