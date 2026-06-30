@@ -230,20 +230,6 @@ ResQLink Civic AI aims to improve disaster preparedness by:
 
 ---
 
-# 📸 Screenshots
-
-> Add screenshots of:
-
-- Login Page
-- Mission Control Dashboard
-- GIS Workspace
-- AI Execution Engine
-- Resource Hub
-- Disaster News
-- Investigation Workspace
-- Mutual Aid Hub
-
----
 
 # 💡 Why ResQLink?
 
